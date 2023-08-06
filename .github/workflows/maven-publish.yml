@@ -140,8 +140,8 @@ jobs:
           echo '  </activeProfiles>' >> nexus-config.xml
           echo '</settings>' >> nexus-config.xml
 
-      - name: Build and Deploy to Nexus
-        run: mvn clean deploy --settings nexus-config.xml
+      - name: Build and Install alinesno-ui
+        run: mvn clean install -f ${{ env.PROJECT_NAME }}/pom.xml --settings nexus-config.xml
 
       - name: Deploy to AliyunCR
         run: |
