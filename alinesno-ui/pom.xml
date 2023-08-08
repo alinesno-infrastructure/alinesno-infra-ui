@@ -14,6 +14,7 @@
     <properties>
         <!-- 项目版本号 -->
         <revision>${project.version}</revision>
+        <docker.user>root</docker.user>
 
         <npm.registry.url>http://registry.npm.taobao.org/</npm.registry.url>
         <spring-cloud.version>2022.0.3</spring-cloud.version>
