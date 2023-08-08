@@ -54,15 +54,7 @@
                 <div class="chat-ai-say-body">
                   <div class="say-message-info">智能专家体系 07-16 19:19:51</div>
                   <div class="say-message-body">
-                    <div>
-                    &nbsp;&nbsp;this.getDicts('alinesno.test.code').then(response => { <br/>
-                      &nbsp;&nbsp;&nbsp;&nbsp;  this.xxxxx = response.data <br/>
-                      &nbsp;&nbsp;}) <br/>
-                    </div>
-                    在上述代码中，`getDicts`方法用于获取字典数据，参数`'alinesno.test.code'`表示要获取的字典类型。通过调用该方法并传入字典类型，您可以获取到相应的字典数据，并将其赋值给`this.xxxxx`变量（请将`xxxxx`替换为您实际需要存储字典数据的变量名）。
-
                     请确保在使用该代码之前已经正确引入全局变量和方法，并且`getDicts`方法能够正常获取字典数据。
-
                   </div>
                 </div>
               </div>

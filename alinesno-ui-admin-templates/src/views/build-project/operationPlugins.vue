@@ -43,7 +43,7 @@ const selectPluginItemList = ref([
 
     .componet-add-plugins {
     float: right;
-    color: #0073bb;
+    color: #3b5998;
     font-size: 14px;
     font-weight: 550;
 }
