@@ -8,7 +8,7 @@
         <div class="banner-text">
           AIP基础设施
         </div>
-        <a href="http://portal.infra.linesno.com/" target="_blank" lass="banner-text" style="float: right;font-weight: 500;font-size: 15px;margin-top: 12px;color: #fff;">
+        <a href="http://portal.infra.linesno.com/" target="_blank" lass="banner-text" style="float: right;font-weight: 500;font-size: 13px;margin-top: 14px;color: rgb(255, 255, 255);">
           <i class="fas fa-link"></i> 官网
         </a>
       </div>
