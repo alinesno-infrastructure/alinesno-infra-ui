@@ -44,7 +44,7 @@ $chartColor: #005bd5;
       display: inline-block;
       white-space: nowrap;
       color: var(--cb-color-button-brand-primary-text, #fff);
-      border-color: #005bd4;
+      border-color: #3b5998;
       cursor: pointer;
 
       img {
@@ -845,7 +845,6 @@ $chartColor: #005bd5;
     margin-left: 10px;
 
     .robot-chat-help-panel {
-
       background: #fff;
       padding: 10px;
       border-radius: 3px;
@@ -891,14 +890,13 @@ $chartColor: #005bd5;
           line-height: 35px;
         }
       }
-
     }
   }
 
   .robot-chat-windows {
     float: left;
     width: 100%;
-    border: 1px solid rgba(230, 231, 235, .3);
+    border: 1px solid rgba(230, 231, 235, 0.3);
   }
 
   .robot-chat-header {
@@ -907,7 +905,7 @@ $chartColor: #005bd5;
     float: left;
     width: 100%;
     background: #fff;
-    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, .15);
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.15);
 
     .chat-header-title {
       float: left;
@@ -931,7 +929,6 @@ $chartColor: #005bd5;
   }
 
   .robot-chat-footer {
-
     background: #fff;
 
     .chat-completion {
@@ -951,12 +948,10 @@ $chartColor: #005bd5;
       text-align: right;
       background: #fff;
     }
-
   }
-
 }
 
-// 服务列表样式 
+// 服务列表样式
 
 .acp-component-container {
   font-size: 14px;
@@ -978,7 +973,6 @@ $chartColor: #005bd5;
     }
   }
 
-
   .server-desc {
     font-size: 1.8rem;
     color: #005bd5;
@@ -992,7 +986,7 @@ $chartColor: #005bd5;
     float: right;
   }
 
-  .table-item-title{
+  .table-item-title {
     color: #0073bb;
     font-size: 14px;
     font-weight: 550;
@@ -1007,7 +1001,6 @@ $chartColor: #005bd5;
     white-space: nowrap;
   }
 
-
   ul {
     margin: 0px;
     padding: 0px;
@@ -1018,7 +1011,6 @@ $chartColor: #005bd5;
   }
 
   .acp-component-plugins-panel {
-
     li.acp-plugins-item {
       margin-bottom: 15px;
       position: relative;
@@ -1057,8 +1049,312 @@ $chartColor: #005bd5;
         right: 16px;
         border-radius: 14px;
       }
+    }
+  }
+}
 
+.login-container {
+  body {
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .el-input--large .el-input__wrapper,
+  .el-input .el-input__icon {
+    height: 46px !important;
+  }
+
+  img.login-code-img {
+    height: 45px;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100px;
+    cursor: pointer;
+  }
+
+  .main-box {
+    background-size: cover;
+    background-image: url("https://img.alicdn.com/imgextra/i3/O1CN018YDlO91csxDVQc1n9_!!6000000003657-2-tps-2880-1432.png");
+    display: flex;
+    width: 100%;
+    background-position: top;
+    height: calc(100vh - 90px);
+  }
+
+  .show-tenant-box {
+    width: 100%;
+
+    .el-input__inner {
+      font-size: 14px;
+      line-height: 22px;
+      height: 33px;
+      margin-top: 0;
+      padding-left: 0;
+      box-shadow: none !important;
+      width: 100%;
+      background: #fff;
+      box-shadow: none;
+      border: none;
+      border-bottom: 1px solid #d7d8d9;
+      caret-color: #ff6a00;
+      border-radius: 0px;
     }
   }
 
+  .banner-text {
+    float: left;
+    font-size: 18px;
+    margin: 10px;
+    line-height: 25px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  .copyright-text {
+    text-align: left;
+    line-height: 30px;
+    font-size: 13px;
+    color: rgb(115, 119, 122);
+    letter-spacing: 0.5px;
+    margin-top: 8px;
+  }
+
+  .login-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0px auto;
+    width: 1200px;
+    margin-top: 8%;
+    height: 518px;
+
+    .infra-dxc {
+      font-size: 12px;
+      color: #b3b3b3;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .tabs-item {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      font-size: 14px;
+      color: rgb(115, 119, 122);
+      cursor: pointer;
+
+      .tabs-item-text {
+        border-bottom: 2px solid rgb(255, 106, 0);
+        color: rgb(255, 106, 0);
+
+        display: inline-block;
+        font-weight: 500;
+        font-size: 18px;
+        color: rgb(24, 24, 24);
+        vertical-align: middle;
+      }
+    }
+
+    .fm-btn {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .fm-button {
+      background-color: #3b5998;
+      background-image: none;
+      border: none;
+      font-size: 14px;
+      width: 100%;
+      color: #fff;
+      min-width: 140px;
+      height: 40px;
+      padding: 0 30px;
+      line-height: 36px;
+      border-radius: 3px;
+      box-shadow: 0 1px 1px #3b5998;
+      zoom: 100%;
+    }
+
+    .fm-field {
+      position: relative;
+      margin-bottom: 20px;
+      font-size: 14px;
+
+      .fm-label {
+        padding: 5px 0;
+        display: block;
+        color: #222;
+        overflow: hidden;
+        display: none;
+      }
+
+      .fm-text {
+        font-size: 14px;
+        line-height: 22px;
+        height: 33px;
+        margin-top: 0;
+        padding-left: 0;
+        width: 100%;
+        background: #fff;
+        box-shadow: none;
+        border-radius: 0px !important;
+        border: none;
+        border-bottom: 1px solid #d7d8d9;
+        caret-color: #ff6a00;
+      }
+    }
+
+    .password-and-mobile-method {
+      padding-left: 50px;
+
+      .tabs-nav {
+        width: 100%;
+        display: flex;
+      }
+
+      .tab-content {
+        position: relative;
+      }
+
+      .password-login-wrapper {
+        margin-top: 50px;
+        text-align: left;
+      }
+    }
+
+    .logo-box {
+      position: relative;
+      width: 782px;
+      background-color: rgb(255, 255, 255);
+      height: 100%;
+      overflow: hidden;
+      box-shadow: rgb(0 0 0 / 15%) 0px 2px 15px;
+
+      .alipay-qrcode-wrapper {
+        position: relative;
+        overflow: hidden;
+
+        .methods-text {
+          font-size: 14px;
+          color: rgb(179, 179, 179);
+        }
+
+        .methods-text {
+          font-size: 14px;
+          color: rgb(179, 179, 179);
+        }
+
+        .alipay-qrcode {
+          width: 100%;
+        }
+      }
+
+      .methods {
+        font-size: 14px;
+        color: rgb(24, 24, 24);
+      }
+
+      .methods-text {
+        font-size: 14px;
+        color: rgb(179, 179, 179);
+      }
+
+      .alipay-channel {
+        text-align: center;
+        position: relative;
+        padding-top: 60px;
+
+        .qrlogin-title {
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 30px;
+          color: rgb(24, 24, 24);
+        }
+      }
+
+      .wrapper {
+        margin-top: 40px;
+        display: flex;
+
+        .qr-method {
+          padding: 0px 80px;
+          position: relative;
+          width: 350px;
+          background-color: rgb(255, 255, 255);
+          z-index: 5;
+          border-right: 0.5px solid #f5f5f5;
+        }
+
+        .method {
+          height: 408px;
+        }
+      }
+    }
+
+    .marketing-wrapper {
+      cursor: pointer;
+      position: relative;
+      width: 390px;
+      height: 100%;
+      margin-right: 40px;
+      color: transparent;
+      background-color: transparent;
+    }
+
+    .title-header {
+      .main-title {
+        margin-top: 100px;
+        display: block;
+        text-align: left;
+        line-height: 50px;
+        font-weight: 600;
+        font-size: 32px;
+        color: rgb(24, 24, 24);
+        letter-spacing: 0px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease 0s;
+      }
+
+      .sub-title {
+        text-align: left;
+        line-height: 24px;
+        font-weight: 600;
+        font-size: 16px;
+        color: rgb(153, 153, 153);
+        letter-spacing: 0.53px;
+        display: block;
+      }
+
+      .jump-to-detail {
+        font-size: 14px;
+        display: block;
+        margin-top: 14px;
+        color: rgb(254, 106, 0);
+        letter-spacing: 0.47px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .login {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fm-button {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .login-form {
+    width: 290px;
+  }
+
+  .forgot-password {
+    margin-top: 10px;
+  }
 }

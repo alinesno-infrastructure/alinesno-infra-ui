@@ -29,8 +29,8 @@ export default {
 
     let saasTitle = 'AIP基础设施'
     let enableLogo = true;
-    let saasUrl = 'http://alinesno-saas.beta.linesno.com'; 
-    let saasLogoUrl = 'http://alinesno-platform.linesno.com/logo.png' ; 
+    let saasUrl = 'http://portal.infra.linesno.com'; 
+    let saasLogoUrl = 'http://portal.infra.linesno.com/logo.png' ; 
     let displayUrl = ''; 
 
     // if (VUE_APP_SASS_TITLE) {

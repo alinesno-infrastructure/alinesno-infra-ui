@@ -3,7 +3,7 @@
     <el-row :gutter="20">
       <el-col :sm="24" :lg="24">
         <blockquote class="text-warning" style="font-size: 14px">
-          领取阿里云通用云产品1888优惠券
+          领取AIP通用云产品1888优惠券
           <br />
           <el-link
             href="https://www.aliyun.com/minisite/goods?userCode=brki8iof"
@@ -21,7 +21,7 @@
             >https://cloud.tencent.com/redirect.php?redirect=1025&cps_key=198c8df2ed259157187173bc7f4f32fd&from=console</el-link
           >
           <br />
-          阿里云服务器折扣区
+          AIP服务器折扣区
           <el-link href="http://aly.ruoyi.vip" type="primary" target="_blank"
             >>☛☛点我进入☚☚</el-link
           >

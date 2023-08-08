@@ -71,7 +71,7 @@
                   <div class="item-datetime-date">12</div>
                 </div>
                 <div class="item-text">
-                  <div class="item-text-main-title">在阿里云使用k8s快速搭建AIP基础设施系统</div>
+                  <div class="item-text-main-title">在AIP使用k8s快速搭建AIP基础设施系统</div>
                   <div class="item-text-main-desc">了解基础知识并找到有用的信息</div>
                 </div>
               </li>

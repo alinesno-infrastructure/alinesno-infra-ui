@@ -1,67 +1,140 @@
 <template>
-  <div class="login">
-    <el-form ref="loginRef" :model="loginForm" :rules="loginRules" class="login-form">
-      <h3 class="title">若依后台管理系统</h3>
-      <el-form-item prop="username">
-        <el-input
-          v-model="loginForm.username"
-          type="text"
-          size="large"
-          auto-complete="off"
-          placeholder="账号"
-        >
-          <template #prefix><svg-icon icon-class="user" class="el-input__icon input-icon" /></template>
-        </el-input>
-      </el-form-item>
-      <el-form-item prop="password">
-        <el-input
-          v-model="loginForm.password"
-          type="password"
-          size="large"
-          auto-complete="off"
-          placeholder="密码"
-          @keyup.enter="handleLogin"
-        >
-          <template #prefix><svg-icon icon-class="password" class="el-input__icon input-icon" /></template>
-        </el-input>
-      </el-form-item>
-      <el-form-item prop="code" v-if="captchaEnabled">
-        <el-input
-          v-model="loginForm.code"
-          size="large"
-          auto-complete="off"
-          placeholder="验证码"
-          style="width: 63%"
-          @keyup.enter="handleLogin"
-        >
-          <template #prefix><svg-icon icon-class="validCode" class="el-input__icon input-icon" /></template>
-        </el-input>
-        <div class="login-code">
-          <img :src="codeUrl" @click="getCode" class="login-code-img"/>
+  <el-container class="login-container">
+    <el-header style="z-index: 100;height: 45px;background: #3b5998;box-shadow: 0 2px 4px 0 var(--cb-color-shadow,rgba(0,0,0,.16));">
+      <div>
+        <div style="float: left;font-size: 30px;color: rgb(255, 255, 255);margin-top: 5px;">
+          <img src="http://portal.infra.linesno.com/logo.png" style="width:35px" alt="">
         </div>
-      </el-form-item>
-      <el-checkbox v-model="loginForm.rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
-      <el-form-item style="width:100%;">
-        <el-button
-          :loading="loading"
-          size="large"
-          type="primary"
-          style="width:100%;"
-          @click.prevent="handleLogin"
-        >
-          <span v-if="!loading">登 录</span>
-          <span v-else>登 录 中...</span>
-        </el-button>
-        <div style="float: right;" v-if="register">
-          <router-link class="link-type" :to="'/register'">立即注册</router-link>
+        <div class="banner-text">
+          AIP基础设施
         </div>
-      </el-form-item>
-    </el-form>
-    <!--  底部  -->
-    <div class="el-login-footer">
-      <span>Copyright © 2018-2023 ruoyi.vip All Rights Reserved.</span>
-    </div>
-  </div>
+        <a href="http://portal.infra.linesno.com/" target="_blank" lass="banner-text" style="float: right;font-weight: 500;font-size: 15px;margin-top: 12px;color: #fff;">
+          <i class="fas fa-link"></i> 官网
+        </a>
+      </div>
+    </el-header>
+    <el-main class="main-box" style="">
+
+      <div class="login-content">
+        <div class="marketing-wrapper">
+          <img class="market-img" src="" alt="">
+          <div class="title-header">
+            <span class="main-title">利用AIP构筑创新业务 构建业务服务实现数字转型高质量发展</span>
+            <span class="sub-title">个人和企业版本免费下载使用</span>
+          </div>
+        </div>
+        <div class=" logo-box">
+          <div class="wrapper">
+            <div class="qr-method method ">
+              <div class="alipay-channel">
+                <div class="next-loading next-loading-inline" style="display: block; height: 100%;">
+                  <div class="next-loading-wrap">
+                    <div class="qrlogin-title">扫码登录</div>
+                    <div class="qrcode-wrap app-text-wrap">
+                      <div class="alipay-qrcode-wrapper ">
+                        <img class="alipay-qrcode"
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQAAAACoxAthAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAd2KE6QAAAAJcEhZcwAAFxEAABcRAcom8z8AAAMpSURBVHja7ZwxcvNACIXxuHC5R9BRfDTraD6Kj6DShUf8Ah67sv+4SBGHzLytNPJ+aRAsPNiIfnsJESJEfhi5Siydz6pLPNvT6XHQ7XFa2v2oik1HIpWRyWy62ndwk+b2veitLYKN25Mc7N227kRqI9u7YyDNbW5fRGzUWSYFsn0ljcgvIPP5tlkyfVFOYdQ0IJE/hLh/3iOQwlMDFiJ/BekBVtPm8XMgGqH2TUwmUgkZaQ9i8oZ4srPu373JlIgUQvZrs/4DsLu0p0ISR24uIoWRzdKwvrgjR6bkT7OYSwNu6chEaiLhyJbgutM+lSVWa8YXYQXKi+8TKYdMEAY8Eo8K0ywdNtdAbBuRyohbNa2PWiUsvco4VF0L6jGZyKcQgX9G2pPSjb9rMGXKOUSqIlZX5kaBWGD7MoPFn5Hz3pGJlEQkstWoHBXZ6uJnpavkseZeYRKpiuiIxNnciLoyNNh0ZIfvREojKEZc44m6ckh4lx6no4ulRAoj2QXxqNtCTj/n8QqJPay/j8lECiLqDrrKcOTIj+5ArMJcs/4kUhrJLqXlR0uqPdLGQRvdEv8OlEhhJKyKVHeRiMSQ021jr1+wiHwG0eweX/zJWo4QcTRUuK9KUSIVkewjjxRHn7Jaa0iueaYSqYz46hsjxZFsPnZpNU5SItWR5RQ56k3GnAcyWOnDAfvjlUhRBHLA0GB9UCfbHJIdK32RCIhUQzxbVcTk3lFuQ8LL4Z2cviJSFXHrHzUXorM5dgy1Lm8EIiLlkJ4p7dUep9cYBICs91XSS6QUEpNWByg7cOTuvvuRACXyQcRSHMzaIAEaT2FK7b8SKY34ywfua8jIZWPA0UuTY7Yh70QqI1F4PI9NpRwQ4zm4FiCNSG2kL/vZXTqU12xz9HtX+wyWSEXkCtviJa4sLhg79mQH1+VGpkSkJjLZL2vkR+nIUypAJuEprK9EqiOL5M1HiHSXmMPCSB0GdbI1SaQ+0gf/3ZF7NSlDlx0nMpHSyGx7XkYCcNsKuk8j8kkEAXZ3Vtq5uJcN/lPhiJRERtrT/4PGdeqnpiTSb4wTqYp8dxEhQuRHkX9Z1cd7zqPOIwAAAABJRU5ErkJggg=="
+                          alt="二维码">
+                      </div>
+                      <div class="methods-text">使用
+                        <span class="methods">二维码登陆（集成中）</span>
+                      </div>
+                      <div class="methods-text hover-orange">下载AIP基设平台，快速提升</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="password-and-mobile-method method">
+                  <div class="tabs-nav">
+                    <div class="tabs-item active">
+                      <div class="tabs-item-text">账号登录</div>
+                    </div>
+                  </div>
+                  <div class="tab-content">
+                    <div class="tab-content-item ">
+                      <div>
+                        <div id="infra-login-iframe" class="password-login-wrapper iframe-loaded">
+
+                              <div class="login">
+                                <el-form ref="loginRef" :model="loginForm" :rules="loginRules" class="login-form">
+                                  <el-form-item prop="username">
+                                    <el-input
+                                      v-model="loginForm.username"
+                                      type="text"
+                                      size="large"
+                                      auto-complete="off"
+                                      placeholder="账号"
+                                    >
+                                      <template #prefix><svg-icon icon-class="user" class="el-input__icon input-icon" /></template>
+                                    </el-input>
+                                  </el-form-item>
+                                  <el-form-item prop="password">
+                                    <el-input
+                                      v-model="loginForm.password"
+                                      type="password"
+                                      size="large"
+                                      auto-complete="off"
+                                      placeholder="密码"
+                                      @keyup.enter="handleLogin"
+                                    >
+                                      <template #prefix><svg-icon icon-class="password" class="el-input__icon input-icon" /></template>
+                                    </el-input>
+                                  </el-form-item>
+                                  <el-form-item prop="code" v-if="captchaEnabled">
+                                    <el-input
+                                      v-model="loginForm.code"
+                                      size="large"
+                                      auto-complete="off"
+                                      placeholder="验证码"
+                                      style="width: 60%"
+                                      @keyup.enter="handleLogin"
+                                    >
+                                      <template #prefix><svg-icon icon-class="validCode" class="el-input__icon input-icon" /></template>
+                                    </el-input>
+                                    <div class="login-code">
+                                      <img :src="codeUrl" @click="getCode" class="login-code-img"/>
+                                    </div>
+                                  </el-form-item>
+                                  <el-checkbox v-model="loginForm.rememberMe" style="margin:0px 0px 25px 0px;">记住密码</el-checkbox>
+                                  <el-form-item style="width:100%;">
+                                    <el-button
+                                      :loading="loading"
+                                      size="large"
+                                      type="primary"
+                                      style="width:100%;border:0px;background:#3b5998;"
+                                      @click.prevent="handleLogin"
+                                    >
+                                      <span v-if="!loading">登 录</span>
+                                      <span v-else>登 录 中...</span>
+                                    </el-button>
+                                    <div style="float: right;" v-if="register">
+                                      <router-link class="link-type" :to="'/register'">立即注册</router-link>
+                                    </div>
+                                  </el-form-item>
+                                </el-form>
+                              </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+            </div>
+          </div>
+          <div class="protocol">
+            <div class="sc-eCImPb infra-dxc">登录视为您已同意<span class="hover-orange"><a class="protocol">第三方账号绑定协议</a>、<a
+                  class="protocol">服务条款</a>、<a class="protocol">隐私政策</a></span></div>
+          </div>
+
+        </div>
+      </div>
+    </el-main>
+    <el-footer style="background: rgb(250, 250, 250);position: fixed;bottom: 0px;width: 100%;height: 45px;">
+      <div class="copyright-text">© 2009-2023 portal.infra.linesno.com 版权所有 ICP证：浙B2-20080101</div>
+    </el-footer>
+  </el-container>
 </template>
 
 <script setup>
@@ -150,66 +223,5 @@ getCode();
 getCookie();
 </script>
 
-<style lang='scss' scoped>
-.login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-image: url("../assets/images/login-background.jpg");
-  background-size: cover;
-}
-.title {
-  margin: 0px auto 30px auto;
-  text-align: center;
-  color: #707070;
-}
-
-.login-form {
-  border-radius: 6px;
-  background: #ffffff;
-  width: 400px;
-  padding: 25px 25px 5px 25px;
-  .el-input {
-    height: 40px;
-    input {
-      height: 40px;
-    }
-  }
-  .input-icon {
-    height: 39px;
-    width: 14px;
-    margin-left: 0px;
-  }
-}
-.login-tip {
-  font-size: 13px;
-  text-align: center;
-  color: #bfbfbf;
-}
-.login-code {
-  width: 33%;
-  height: 40px;
-  float: right;
-  img {
-    cursor: pointer;
-    vertical-align: middle;
-  }
-}
-.el-login-footer {
-  height: 40px;
-  line-height: 40px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-  font-family: Arial;
-  font-size: 12px;
-  letter-spacing: 1px;
-}
-.login-code-img {
-  height: 40px;
-  padding-left: 12px;
-}
+<style lang="scss">
 </style>
