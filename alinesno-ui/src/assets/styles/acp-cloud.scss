@@ -456,8 +456,8 @@ $chartColor: #005bd5;
 .homeHeaderBox {
   position: relative;
   box-sizing: border-box;
-  padding: 24px 10px 0;
-  height: 69px;
+  padding: 4px 10px 0;
+  height: 49px;
   margin-left: -10px;
   margin-right: -10px;
   margin-top: -10px;
@@ -470,6 +470,7 @@ $chartColor: #005bd5;
 
   .toolkit {
     justify-content: right;
+    padding-top: 5px;
     display: flex;
 
     button.next-btn.next-medium.next-btn-normal {
@@ -500,7 +501,6 @@ $chartColor: #005bd5;
       flex-shrink: 1;
       height: 40px;
       margin-top: 4px;
-      border-left: 1px solid #d5d5d5;
       width: 80%;
       float: left;
 
@@ -509,10 +509,10 @@ $chartColor: #005bd5;
         flex-shrink: 1;
         overflow: hidden;
         height: 40px;
-        max-width: 952px;
+        max-width: 90%;
 
         .select {
-          border-top: 3px solid #3b5998 !important;
+          border-bottom: 3px solid #3b5998 !important;
           color: #3b5998;
         }
 
@@ -526,19 +526,14 @@ $chartColor: #005bd5;
           background: #fff;
           border-color: #c0c6cc;
           border-style: solid;
-          border-width: 1px 1px 0 0;
+          border-width: 0px;
           cursor: pointer;
           font-weight: 550;
           font-size: 14px;
+          border-bottom: 3px solid #fff;
 
           .title {
-            -webkit-flex-shrink: 1;
-            -ms-flex-negative: 1;
             flex-shrink: 1;
-            -webkit-box-flex: 1;
-            -webkit-flex-grow: 1;
-            -moz-box-flex: 1;
-            -ms-flex-positive: 1;
             flex-grow: 1;
             overflow: hidden;
             -o-text-overflow: ellipsis;
@@ -551,7 +546,7 @@ $chartColor: #005bd5;
 
       .react-grid-item {
         transform: translate(0px, 0px);
-        width: 180px;
+        width: 150px;
         height: 40px;
         border: 0px !important;
         position: absolute;

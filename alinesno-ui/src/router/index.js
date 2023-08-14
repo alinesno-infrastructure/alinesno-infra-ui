@@ -128,6 +128,12 @@ export const constantRoutes = [
         meta: { title: '运维监控', icon: 'dashboard', affix: true }
       },
       {
+        path: '/dashboard/smartWorkspace',
+        component: () => import('@/views/smartWorkspace'),
+        name: '/dashboard/smartWorkspace',
+        meta: { title: '智能运营', icon: 'dashboard', affix: true }
+      },
+      {
         path: '/dashboard/customWorkspace',
         component: () => import('@/views/customWorkspace'),
         name: '/dashboard/customWorkspace',
